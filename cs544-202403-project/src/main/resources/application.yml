@@ -1,0 +1,54 @@
+common:
+  security:
+    enabled: false
+  feign-oauth:
+    enabled: false
+  mvc:
+    enabled: false
+server:
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /badge-system
+spring:
+  security:
+    user:
+      name: user
+      password: 123
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: atefa82277@gmail.com
+    password: "phjl jdtn ghco rbly"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: admin
+  application:
+    name: cs544-202403-project
+  datasource:
+#    url: jdbc:mysql://database-1.czd4kykju5ju.us-east-1.rds.amazonaws.com:3306/cs544-labs?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/cs544-project?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+logging:
+  level:
+    root: INFO
+  file:
+    name: /CS544/Logging/${spring.application.name}/logs
