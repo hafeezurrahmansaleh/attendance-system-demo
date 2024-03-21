@@ -35,6 +35,7 @@ jobs:
       - name: Delete old container
         run: sudo docker rm -f ea-springboot-container
       - name: Run docker container
+
 #        with:
 #          image: hafeezurrahmansaleh/ea-springboot:latest
 #          name: ea-springboot-container
