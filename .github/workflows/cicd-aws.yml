@@ -33,6 +33,15 @@ jobs:
       - name: Pull Image from docker hub
         run: docker pull hafeezurrahmansaleh/ea-springboot:latest
       - name: Delete old container
-        run: docker rm -f ea-springboot-container
+        run: sudo docker rm -f ea-springboot-container
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name ea-springboot-container hafeezurrahmansaleh/ea-springboot
+        uses: docker/run-action@v2
+        with:
+          image: hafeezurrahmansaleh/ea-springboot:latest
+          name: ea-springboot-container
+          ports: "8080:8080"
+          detach: true
+          use_sudo: true
+            # Add other options as needed
+#        run: docker run -d -p 8080:8080 --name ea-springboot-container hafeezurrahmansaleh/ea-springboot
+
