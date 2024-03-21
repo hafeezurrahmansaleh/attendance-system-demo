@@ -121,6 +121,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>ea-project</finalName>
 	</build>
 
 </project>
