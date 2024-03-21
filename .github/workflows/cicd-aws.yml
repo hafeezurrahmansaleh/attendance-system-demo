@@ -22,17 +22,17 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Build docker image
-        run: docker build -t hrs/ea-springboot .
+        run: docker build -t hafeezurrahmansaleh/ea-springboot .
       - name: Publish image to docker hub
-        run: docker push hrs/ea-springboot:latest
+        run: docker push hafeezurrahmansaleh/ea-springboot:latest
 
   deploy:
     needs: build
     runs-on: [aws-ec2]
     steps:
       - name: Pull Image from docker hub
-        run: docker pull hrs/ea-springboot:latest
+        run: docker pull hafeezurrahmansaleh/ea-springboot:latest
       - name: Delete old container
         run: docker rm -f ea-springboot-container
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name ea-springboot-container hrs/ea-springboot
+        run: docker run -d -p 8080:8080 --name ea-springboot-container hafeezurrahmansaleh/ea-springboot
