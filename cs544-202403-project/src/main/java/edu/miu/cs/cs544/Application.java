@@ -37,8 +37,7 @@ public class Application implements CommandLineRunner {
 //
 //    @Autowired
 //    private MemberToMemberPayloadMapper memberMapper;
-
-
+    
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
